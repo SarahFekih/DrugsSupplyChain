@@ -1,0 +1,72 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content" *ngIf="dataOrder">
+  <div class="row">
+    <div class="col-md-12">   
+         <div class="card">
+        <div class="card-header">
+          <h5 class="title"> Order details </h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row" style="padding-left: 100px !important;">
+              <div class="col-md-8 pr-1">
+                <div class="form-group">
+                  <h6>OrderID</h6> {{dataOrder['Order_ID']}}
+                </div>
+              </div>
+              <div class="col-md-8 pr-1">
+                <div class="form-group">
+                  <h6>Product</h6> {{dataOrder['Product_Id']}}
+                </div>
+              </div>
+              <div class="col-md-8 pr-1">
+                <div class="form-group">
+                  <h6>Delivery Date</h6> {{dataOrder['Date_Of_delivery']}}
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding-left: 100px !important;">
+             
+              <div class="col-md-12 pr-1">
+                <div class="form-group">
+                  <h6>Status</h6>
+                  <p *ngIf="dataOrder['Accepted'] == false && dataOrder['Sended'] == false" type="text" disabled="" placeholder="invalid" value="In stock">In stock</p>
+                  <p *ngIf="dataOrder['Sended'] == true && dataOrder['Accepted'] == false" type="text"  disabled="" placeholder="invalid" value="Order sent waiting for approval">Order sent waiting for approval</p>
+                  <p *ngIf="dataOrder['Accepted'] == true && dataOrder['Sended'] == false" type="text"  disabled="" placeholder="invalid" value="Order approved">Order approved</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding-left: 100px !important;">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <button href="#"  type="button" class="btn btn-primary" *ngIf="dataOrder['Accepted'] == false && dataOrder['Sended'] == false" (click)="sendOrder()">
+                    Send Order
+                 </button>
+                 <button href="#"  type="button" class="btn btn-primary" *ngIf="dataOrder['Accepted'] == false && dataOrder['Sended'] == true" (click)="acceptOrder()">
+                  Accept Order
+               </button>
+               <button href="#"  type="button" class="btn btn-primary" *ngIf="dataOrder['Accepted'] == true && dataOrder['Sended'] == false" (click)="sendOrder()">
+                Send Order
+             </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="main-content" *ngIf="dataSource">
+  <div class="row">
+    <div class="col-md-12">   
+          <div class="card">
+            <angularx-timeline [dataSource]="dataSource"></angularx-timeline>
+         </div>
+    </div>
+  </div>
+</div>

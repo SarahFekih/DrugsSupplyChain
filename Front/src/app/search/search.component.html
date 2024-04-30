@@ -1,0 +1,59 @@
+<div class="panel-header panel-header-sm">
+</div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title"> Search Order  </h5>
+          
+        </div>
+        <div class="card-header">
+                <div class="row">
+                
+                  <div class="col-md-12 px-1">
+                    <div class="form-group">
+                    
+                     <div id="zonereader" name="zonereader" style="display: inline-block;" [(ngModel)]="ProductID" width="600px"></div>
+                  
+                    </div>
+                  </div>
+                
+              </div>
+   
+                <div class="row">
+                  <div class="col-md-12 pr-1 ">
+                    <div class="form-group">
+                      <button href="#"  type="button" class="btn btn-primary" (click)="startScan()">
+                        Start scan
+                    </button>
+                    </div>
+                  </div>
+                </div>
+
+               
+        </div>
+        <div class="card-body">
+        
+          <div class="main-content" *ngIf="dataSource">
+            <div class="row">
+              <div class="col-md-12">   
+                  
+                  
+                 
+                    <div class="card">
+                      <angularx-timeline [dataSource]="dataSource"></angularx-timeline>
+                   </div>
+                  
+            
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

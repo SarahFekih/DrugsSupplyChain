@@ -1,0 +1,61 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title"> Create Order  </h5>
+        
+        </div>
+        <div class="card-body">
+            <div class="row">
+             
+              <div class="col-md-3 px-1">
+                <div class="form-group">
+                  <label>Product</label>
+                 <select class="form-control"  [(ngModel)]="productID"  >
+                  <option  *ngFor="let item of products" id="{{item.id}}">{{item.Label}}</option>
+                </select>
+              </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label for="delivery">Delivery Date</label>
+                  <input name="delivery" id="delivery" type="date"  class="form-control" [(ngModel)]="delivery">
+                </div>
+              </div>
+              <div class="col-md-4 pl-1" >
+                 <ngx-qrcode   *ngIf="edited" id="qrZone"
+                    [elementType]="elementType" 
+                    [value] = "value"
+                    cssClass = "aclass"
+                    errorCorrectionLevel = "L">
+                </ngx-qrcode>
+              
+              </div>  
+            </div>
+ 
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <button href="#"  type="button" class="btn btn-primary" (click)="doCreateOrder()">
+                    Create
+                 </button>
+                </div>
+              </div>
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+              <button *ngIf="edited" class="btn btn-primary" style="float: right;margin-right: 1px;"  (click)="printQr()">Print Qr</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+ 

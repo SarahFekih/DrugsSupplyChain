@@ -1,0 +1,68 @@
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> List Orders</h4>    
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  OrderID
+                </th>
+                <th>
+                  ProductID
+                </th>
+                <th>
+                  DeliveryDate
+                </th>
+                <th class="text-right">
+                    Current Owner
+                </th>
+                <th class="text-right">
+                Actions
+                </th>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of ordersList">
+                    <td>
+                      {{item["_id"]}}
+                    </td>
+                    <td>
+                      {{item["ProductID"]}}
+                    </td>
+                    <td>
+                        {{item["DateOfDelivery"] | date}}
+                      </td>
+                      <td class="text-right">
+                        {{emplacement [item["Emplacement"]]}}
+                      </td>
+                      <td class="text-right" *ngIf="item[1]==0"> 
+                        client approval pending
+                      </td>
+                      <td class="text-right" *ngIf="item[1]==1"> 
+                        <a href="">payment approval pending</a>
+                      </td>
+                      <td class="text-right" *ngIf="item[1]==2"> 
+                        <a href="">Valide Transaction</a>
+                      </td>
+                      <td class="text-right">
+                        <a routerLink="/user-profile/{{item['_id']}}" type="button" class="btn btn-primary">Details</a>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+  </div>
+</div>

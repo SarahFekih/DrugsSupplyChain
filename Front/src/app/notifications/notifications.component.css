@@ -1,0 +1,16 @@
+
+.aclass button {    
+    padding: 10px;    
+    background-color: skyblue;    
+    margin-top: 10px;    
+}    
+.aclass input {    
+    padding: 10px;    
+    width: 15%;    
+}    
+.aclass a {    
+    padding: 10px;    
+    background-color: skyblue;    
+    margin-top: 10px;    
+    text-decoration: none;    
+}  

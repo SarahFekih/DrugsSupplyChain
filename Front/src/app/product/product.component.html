@@ -1,0 +1,93 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title"> Create Product  </h5>
+          <div style="margin-left: 200px">
+            <div class="custom-control custom-checkbox" >
+                <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" [(ngModel)]="TOYOTA" >
+              </div>
+              <div class="custom-control custom-checkbox" *ngIf="ws.currentUser == 3">
+                  <input type="checkbox" class="custom-control-input" id="customCheckDisabled2" [(ngModel)]="KIA">
+                  <label class="custom-control-label" for="customCheckDisabled2">KIA</label>
+              </div>
+        </div>
+        </div>
+        <div class="card-header">
+            <div class="row">
+             
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label for="Label">Label</label>
+                  <input type="text" class="form-control"  placeholder="Label" [(ngModel)]="Label">
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label for="Manufacturing-date">Manufacturing date</label>
+                  <input name="Manufacturing date" id="Manufacturing date" type="date"  class="form-control" [(ngModel)]="ManufacturingDate">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Expiration Date</label>
+                  <input type="date" class="form-control"  [(ngModel)]="ExpirationDate">
+                </div>
+              </div>
+           
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <button href="#"  type="button" class="btn btn-primary" (click)="CreateProduct()">
+                    Create
+                 </button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary text-center">
+                <th>
+                  Label
+                </th>
+                <th>
+                  Manufacturing Date
+                </th>
+                <th>
+                  Expiration Date
+                </th>
+             
+            
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of products" class="text-center">
+                    <td>
+                      {{item.Label}}
+                    </td>
+                    <td>
+                      {{item.ManufacturingDate|date}}
+                    </td>
+                    <td>
+                      {{item.ExpirationDate|date}}
+                      </td>
+                
+                  </tr>
+
+                
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

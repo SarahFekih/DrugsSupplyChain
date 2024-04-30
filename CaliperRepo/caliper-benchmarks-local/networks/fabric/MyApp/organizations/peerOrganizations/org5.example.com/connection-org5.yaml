@@ -1,0 +1,63 @@
+---
+name: test-network-org5
+version: 1.0.0
+client:
+  organization: Org5
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Org5:
+    mspid: Org5MSP
+    peers:
+    - peer0.org5.example.com
+    certificateAuthorities:
+    - ca.org5.example.com
+peers:
+  peer0.org5.example.com:
+    url: grpcs://localhost:12051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICHjCCAcWgAwIBAgIUBrF5hJNQeSe1VrvF5HOFdD4gtdQwCgYIKoZIzj0EAwIw
+          bDELMAkGA1UEBhMCVVMxETAPBgNVBAgTCE5ldyBZb3JrMREwDwYDVQQHEwhOZXcg
+          WW9yazEZMBcGA1UEChMQb3JnNS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eub3Jn
+          NS5leGFtcGxlLmNvbTAeFw0yMjA4MDIxMTQ1MDBaFw0zNzA3MjkxMTQ1MDBaMGwx
+          CzAJBgNVBAYTAlVTMREwDwYDVQQIEwhOZXcgWW9yazERMA8GA1UEBxMITmV3IFlv
+          cmsxGTAXBgNVBAoTEG9yZzUuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2NhLm9yZzUu
+          ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASmZ7CO4gPvd00R
+          B9/xtixcX4Rkft5W4IlIi914U7LBxUFHdJZDWjzNMoITtdeqZC8Gc7DPSF7kpj/v
+          D6q9l+29o0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBATAd
+          BgNVHQ4EFgQUoXZ+j3FKwmjMg/wF/qWq4yPcn7kwCgYIKoZIzj0EAwIDRwAwRAIg
+          JPLqB5oHNjQ7Kj2AcZE0CgGeB6TAz3hxaOHhCQp6/1QCID2pR89YkdlLz2wXbVTb
+          l9Qr7Ahu6+klrpjHhIDatRGK
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer0.org5.example.com
+      hostnameOverride: peer0.org5.example.com
+certificateAuthorities:
+  ca.org5.example.com:
+    url: https://localhost:12054
+    caName: ca-org5
+    tlsCACerts:
+      pem: 
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICHjCCAcWgAwIBAgIUBrF5hJNQeSe1VrvF5HOFdD4gtdQwCgYIKoZIzj0EAwIw
+          bDELMAkGA1UEBhMCVVMxETAPBgNVBAgTCE5ldyBZb3JrMREwDwYDVQQHEwhOZXcg
+          WW9yazEZMBcGA1UEChMQb3JnNS5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eub3Jn
+          NS5leGFtcGxlLmNvbTAeFw0yMjA4MDIxMTQ1MDBaFw0zNzA3MjkxMTQ1MDBaMGwx
+          CzAJBgNVBAYTAlVTMREwDwYDVQQIEwhOZXcgWW9yazERMA8GA1UEBxMITmV3IFlv
+          cmsxGTAXBgNVBAoTEG9yZzUuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2NhLm9yZzUu
+          ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASmZ7CO4gPvd00R
+          B9/xtixcX4Rkft5W4IlIi914U7LBxUFHdJZDWjzNMoITtdeqZC8Gc7DPSF7kpj/v
+          D6q9l+29o0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBATAd
+          BgNVHQ4EFgQUoXZ+j3FKwmjMg/wF/qWq4yPcn7kwCgYIKoZIzj0EAwIDRwAwRAIg
+          JPLqB5oHNjQ7Kj2AcZE0CgGeB6TAz3hxaOHhCQp6/1QCID2pR89YkdlLz2wXbVTb
+          l9Qr7Ahu6+klrpjHhIDatRGK
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false

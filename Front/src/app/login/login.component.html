@@ -1,0 +1,61 @@
+<!--
+<div class="login-page">
+  <div class="form">
+      <input type="text" id="user" [(ngModel)]="username"/>
+      <input type="password" id="pwd" [(ngModel)]="password"/>
+      <input type="text" id="mspid" [(ngModel)]="mspid"/>
+      <button (click)="SignInUser()">login</button>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">
+      <strong>Error!</strong> Login failed.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" (click)="msg = -1">&times;</span>
+      </button>
+    </div>
+</div>
+
+-->
+<div style="width: 100%; overflow: hidden;">
+  <div style="width: 600px; float: left;"> 
+    <div class="login-page">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1>Login</h1>
+        <div class="form">
+          <div class="input-field">
+            <input type="text" formControlName="username" placeholder="Username" autocomplete="nope">
+          </div>
+          <div class="input-field">
+            <input type="password" formControlName="password" placeholder="Password">
+          </div>
+          <div class="input-field">
+            <input type="text" formControlName="mspid" placeholder="Organization">
+          </div>
+        
+    
+          <button type="submit" [disabled]="loginForm.invalid">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style="margin-left: 620px;">
+    <div class="login-page">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <h1>Register </h1>
+          <div class="form">
+          <div class="input-field">
+              <input type="text" formControlName="username" placeholder="Username" autocomplete="nope">
+          </div>
+          <div class="input-field">
+              <input type="password" formControlName="password" placeholder="Password">
+          </div>
+          <div class="input-field">
+              <input type="text" formControlName="mspid" placeholder="Organization">
+          </div>
+          
+    
+          <button type="submit" [disabled]="registerForm.invalid">Register</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
